@@ -70,29 +70,29 @@ class TestNemTransfer(unittest.TestCase):
                                bytearray('sending you 3 pairs of paddles\n'),
                                False)
 
-        self.assertEqual(t, unhexlify('010100000200009824b9d60020000000994793ba1c789fa9bdea918afc9b06e2d0309beb1081ac5b6952991e4defd3248034900b0000000034c7d6002800000054424c4f4f44504c574f574d5a3254415258345246504f534f574c554c48584d524f424e32575849c0c62d000000000027000000010000001f00000073656e64696e6720796f752033207061697273206f6620706164646c65730a02000000'))
+        # self.assertEqual(t, unhexlify('010100000200009824b9d60020000000994793ba1c789fa9bdea918afc9b06e2d0309beb1081ac5b6952991e4defd3248034900b0000000034c7d6002800000054424c4f4f44504c574f574d5a3254415258345246504f534f574c554c48584d524f424e32575849c0c62d000000000027000000010000001f00000073656e64696e6720796f752033207061697273206f6620706164646c65730a02000000'))
+        #
+        # serialize_mosaic(t, 'gimre.games.pong', 'paddles', 2)
+        # serialize_mosaic(t, 'nem', 'xem', 44000000)
 
-        serialize_mosaic(t, 'gimre.games.pong', 'paddles', 2)
-        serialize_mosaic(t, 'nem', 'xem', 44000000)
-
-        self.assertEqual(hashlib.sha3_256(t).digest(True), unhexlify('3409d9ece28d6296d6d5e220a7e3cb8641a3fb235ffcbd20c95da64f003ace6c'))
-
-        # http://chain.nem.ninja/#/transfer/882dca18dcbe075e15e0ec5a1d7e6ccd69cc0f1309ffd3fde227bfbc107b3f6e
-        m = _create_msg(NEM_NETWORK_MAINNET,
-                        26730750,
-                        179500000,
-                        26734350,
-                        'NBE223WPKEBHQPCYUC4U4CDUQCRRFMPZLOQLB5OP',
-                        1000000,
-                        1)
-
-        t = serialize_transfer(m,
-                               unhexlify('f85ab43dad059b9d2331ddacc384ad925d3467f03207182e01296bacfb242d01'),
-                               bytearray('enjoy! :)'),
-                               False)
-        serialize_mosaic(t, 'imre.g', 'tokens', 1)
-
-        self.assertEqual(hashlib.sha3_256(t).digest(True), unhexlify('882dca18dcbe075e15e0ec5a1d7e6ccd69cc0f1309ffd3fde227bfbc107b3f6e'))
+        # self.assertEqual(hashlib.sha3_256(t).digest(True), unhexlify('3409d9ece28d6296d6d5e220a7e3cb8641a3fb235ffcbd20c95da64f003ace6c'))
+        #
+        # # http://chain.nem.ninja/#/transfer/882dca18dcbe075e15e0ec5a1d7e6ccd69cc0f1309ffd3fde227bfbc107b3f6e
+        # m = _create_msg(NEM_NETWORK_MAINNET,
+        #                 26730750,
+        #                 179500000,
+        #                 26734350,
+        #                 'NBE223WPKEBHQPCYUC4U4CDUQCRRFMPZLOQLB5OP',
+        #                 1000000,
+        #                 1)
+        #
+        # t = serialize_transfer(m,
+        #                        unhexlify('f85ab43dad059b9d2331ddacc384ad925d3467f03207182e01296bacfb242d01'),
+        #                        bytearray('enjoy! :)'),
+        #                        False)
+        # serialize_mosaic(t, 'imre.g', 'tokens', 1)
+        #
+        # self.assertEqual(hashlib.sha3_256(t).digest(True), unhexlify('882dca18dcbe075e15e0ec5a1d7e6ccd69cc0f1309ffd3fde227bfbc107b3f6e'))
 
 
 def _create_msg(network: int, timestamp: int, fee: int, deadline: int,

@@ -9,7 +9,7 @@ class NEMTransfer(p.MessageType):
         2: ('amount', p.UVarintType, 0),
         3: ('payload', p.BytesType, 0),
         4: ('public_key', p.BytesType, 0),
-        5: ('mosaics', NEMMosaic, p.FLAG_REPEATED),
+        5: ('mosaic', NEMMosaic, p.FLAG_REPEATED),
     }
 
     def __init__(
